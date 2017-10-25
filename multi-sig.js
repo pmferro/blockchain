@@ -34,12 +34,14 @@ console.log(address.toString())
 var Insight = require("bitcore-explorers").Insight;
 var insight = new Insight("testnet")
 
+// esto se puede reemplazar por el codigo de simple-transaction que trae el utxo
+// asi no necesito cambiar el txID ...
 var utxo = {
-  "txId" : "21cf609d9863a29268f0d6c9450806ab59dbeefbf90eba72890f81fba76d53de",
-  "outputIndex" : 0,
+  "txId" : "5775431cb1d08774c04b918220321d53a8485be21e30aac4052ef0ed53844f29",
+  "outputIndex" : 1,
   "address" : address.toString(),
   "script" : new bitcore.Script(address).toHex(),
-  "satoshis" : 65000000
+  "satoshis" : 62640000
 };
 
 var transaction = new bitcore.Transaction()
@@ -53,6 +55,7 @@ var transaction = new bitcore.Transaction()
     transaction.to('mgNdmwJY7wKuhEeGMVYi9sdUXxeyHtd2fv', transactionAmount)
     transaction.fee(minerFee)
     transaction.change(address)
+    // transaction.sign(privkey1) // si firma uno solo sale error 'Some inputs have not been fully signed'
     transaction.sign(privateKeys)   
     transaction.serialize()
     
