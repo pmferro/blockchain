@@ -23,7 +23,8 @@ insight.getUnspentUtxos(address, function(err, utxos){
         var tx = new bitcore.Transaction()
         const unit = bitcore.Unit;
         const minerFee = unit.fromMilis(0.4).toSatoshis();
-        const transactionAmount = unit.fromMilis(50).toSatoshis();
+        const transactionAmount = unit.fromMilis(5).toSatoshis();
+        const transactionAmountBTC = unit.fromSatoshis(transactionAmount).toBTC();
         
         tx.from(utxos)
         tx.to(toaddress, transactionAmount)
@@ -36,7 +37,7 @@ insight.getUnspentUtxos(address, function(err, utxos){
             if (error) {
               console.log(error);
             } else {
-                console.log("Enviados: " + transactionAmount + " satoshis, equivalentes a " + unit.fromSatoshis(transactionAmount).toBTC + " BTC");
+                console.log("Enviados: " + transactionAmount + " satoshis, equivalentes a " + transactionAmountBTC  + " BTC");
                 console.log("Dirección de envío: " + toaddress);
                 console.log("ID de Transacción: " + transactionId);
             }
