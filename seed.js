@@ -10,9 +10,13 @@ var  randomBytes = crypto.randomBytes(16) // 128 bits is enough
 // your 12 word phrase
 var mnemonic = bip39.entropyToMnemonic(randomBytes.toString('hex')) 
 
+// piso la var para poder seguir creando keypairs que derivan del mismo seed
+mnemonic = "relax zebra age cute swallow pumpkin hand spice abuse glory heart sadness"
+
 // what is accurately described as the wallet seed
 var seed = bip39.mnemonicToSeed(mnemonic) // you'll use this in #3 below
 console.log(mnemonic)
+// use esta seed generada: relax zebra age cute swallow pumpkin hand spice abuse glory heart sadness
 
 var bitcoin = require('bitcoinjs-lib') // npm i -S bitcoinjs-lib
 
@@ -22,6 +26,8 @@ var hdMaster = bitcoin.HDNode.fromSeedBuffer(seed, bitcoinNetwork) // seed from 
 // genera nuevas keys
 var key1 = hdMaster.derivePath('m/0')
 var key2 = hdMaster.derivePath('m/1')
+var key3 = hdMaster.derivePath('m/2')
 
 console.log(key1.keyPair.toWIF())
 console.log(key2.keyPair.toWIF())
+console.log(key3.keyPair.toWIF())
