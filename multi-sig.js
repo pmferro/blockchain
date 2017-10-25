@@ -45,8 +45,8 @@ var utxo = {
 var transaction = new bitcore.Transaction()
 
     const unit = bitcore.Unit;
-    const minerFee = unit.fromMilis(0.4).toSatoshis();
-    const transactionAmount = unit.fromMilis(2).toSatoshis();
+    const minerFee = unit.fromMilis(1.2).toSatoshis();
+    const transactionAmount = unit.fromMilis(20).toSatoshis();
     const transactionAmountBTC = unit.fromSatoshis(transactionAmount).toBTC();
 
     transaction.from(utxo, publicKeys, 2)
@@ -61,7 +61,8 @@ var transaction = new bitcore.Transaction()
       console.log(error);
     } else {
         console.log("Enviados: " + transactionAmount + " satoshis, equivalentes a " + transactionAmountBTC  + " BTC");
-        console.log("Dirección de envío: " + toaddress);
+        console.log("From: " + "2N3CNcF1sdYnwXQFrkdJQbgTmTaDtGZ1HVB");
+        console.log("To: " + "mgNdmwJY7wKuhEeGMVYi9sdUXxeyHtd2fv");
         console.log("ID de Transacción: " + transactionId);
     }
   });
