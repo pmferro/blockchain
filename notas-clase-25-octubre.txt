@@ -1,0 +1,82 @@
+Temas
+
+- Smart Contracts
+- DAPPS
+- Ethereum
+
+Alan Verbner github.com/AlanVerbner
+Empresa Atix
+
+Nick Szabo - Smart Contracts
+
+DAPPS (Descentrilized Apps)
+1. Open source
+2. Datos tienen que ser criptograficamente almacenados. Debe usar una blockchain
+3. Debe usar un token criptografico
+4. Los tokens deben ser generados de acuerdo a algun estandar
+
+Dapps (Clasificacion)
+Tipo1: aplicaciones descentralizadas que tienen su propia blockchain. Ej: Bitcoin
+Tipo2: aplicaciones descentralizadas que usan una blockchain de Tipo1. Ej: Omni Protocol
+Tipo3:
+
+Ehrsam, Fred
+
+Ethereum
+
+Plataforma descentralizada que permite la ejecucion de Smart Contracts
+Basada en blockchain
+Contiene una maquina virtual Touring-cmoplete (EVM)
+Token Propio, Ether
+
+Un poco de historia
+Fines de 2013 Vitalik Buterin
+DAO form 20 de julio
+
+Accounts
+
+Cuentas que no son del tipo contrato, donde se mueve plata basicamente. Aca esta el tema de address y claves.
+Cuentas con contratos, que tienen codigo. Puede tener o no ether. Los contratos no generan transacciones. Envian mensajes a otros contratos.
+
+Las cuentas se identifican por una direccion de 20 bytes.
+
+Las cuentas tienen:
+Nonce, Balance, Storage Root (variables persistentes, por ej la cant de tokens) y Code Hash
+
+El codigo de un contrato que se sube no se puede cambiar
+
+Transacciones
+Instruccion firmadas criptograficamente construida por un actot externo.
+Tipos:
+1. Contract Init
+2. Message Calls
+
+Recibos
+Contienen informacio sobre la ejecucion de una transaccion
+StateRoot / Bloom Filter / Cumulative Gas Used / Logs
+
+Bloques
+Header
+Body
+Van separados. Las transacciones van en los Header.
+
+Los BlockBody tienen lista de transacciones y lista de ommers. La red de ethereum incentiva a la generacion de bloques.
+
+Ciclo de ejecucion
+1. Validacion de bloque
+2. Ejecucion de las transacciones
+    a. Validacion de cada transaccion
+    b. Ejecucion de EVM (Ethereum virtual machine)
+    c. Generacion de receipts
+3. Pago del reward
+4. Validacion post ejecucion
+
+ethstats.com
+
+Extras
+
+Keccak-256 (no sha3)
+RLP
+HexPrefix
+Merkle Patricia Tree
+DEVp2p Wire Protocol (mensajeria)
